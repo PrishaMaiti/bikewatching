@@ -59,7 +59,7 @@ function computeStationTraffic(stations, timeFilter = -1) {
 console.log('Mapbox GL JS Loaded:', mapboxgl);
 
 // Set your Mapbox access token here
-mapboxgl.accessToken = '';
+mapboxgl.accessToken = window.MAPBOX_TOKEN || '';
 
 // Initialize the map
 const map = new mapboxgl.Map({
