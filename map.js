@@ -58,7 +58,9 @@ function computeStationTraffic(stations, timeFilter = -1) {
 // Check that Mapbox GL JS is loaded
 console.log('Mapbox GL JS Loaded:', mapboxgl);
 
-// Set your Mapbox access token here
+// Local secrets.js can override this on development machines.
+// For production, set a restricted token via your deployment pipeline or
+// use Mapbox token restrictions. Do NOT store real tokens in the repo.
 mapboxgl.accessToken = window.MAPBOX_TOKEN || '';
 
 // Initialize the map
