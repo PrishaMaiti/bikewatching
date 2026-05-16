@@ -1,0 +1,76 @@
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+}
+
+header label {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  align-items: flex-start;
+}
+
+header time,
+header em {
+  display: block;
+}
+
+header em {
+  color: #666;
+  font-style: italic;
+}
+#map {
+  position: relative;
+  width: 100%; /* Adjust width to your desired size */
+  flex: 1;
+  min-height: 0;
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+#map svg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Shared flow colors for map circles and legend swatches */
+#map svg circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+/* Style map SVG markers for better overlap visibility */
+#map svg circle {
+  fill: var(--color);
+  fill-opacity: 0.6; /* 60% opacity */
+  stroke: white;
+  stroke-width: 1px;
+  pointer-events: auto; /* enable tooltips on circles */
+}
+
+.legend {
+  display: flex;
+  gap: 0.5rem;
+  margin-block: 1rem 0;
+}
+
+.legend > div {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: var(--color);
+  color: white;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
